@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Profile.module.css";
+import users from "./user.json";
 
+console.log(users);
 
 const Profile = ({ user }) => {
   return (
