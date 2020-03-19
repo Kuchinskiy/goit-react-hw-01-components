@@ -9,13 +9,16 @@ import stats from "./Statistics/statisticalData.json";
 import FriendList from './FriendList/FriendList';
 import friends from './FriendList/friends.json';
 
+import TransactionHistory from './TransactionHistory/TransactionHistory';
+import items from './TransactionHistory/transactions.json';
+
 
 const App = () => (
     <>
     <Profile user={user}/>
     <Statistics title="Upload stats" stats={stats}/>
     <FriendList friends={friends}/>
-
+    <TransactionHistory items={items}/>
     </>
 );
 
