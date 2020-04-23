@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./Profile.module.css";
-import users from "./user.json";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Profile.module.css';
 
-console.log(users);
 
-const Profile = ({ user }) => {
+const Profile = ({
+  user = { name: 'No name', stats: { followers: 0, views: 0, likes: 0 } },
+}) => {
   return (
     <section className="profile-section">
       <div className={styles.profile}>
@@ -19,15 +19,21 @@ const Profile = ({ user }) => {
         <ul className={styles.stats}>
           <li>
             <span className={styles.label}>Followers</span>
-            <span className={styles.quantity}>{user.stats.followers}</span>
+            <span className={styles.quantity}>
+              {user.stats.followers.toLocaleString()}
+            </span>
           </li>
           <li>
             <span className={styles.label}>Views</span>
-            <span className={styles.quantity}>{user.stats.views}</span>
+            <span className={styles.quantity}>
+              {user.stats.views.toLocaleString()}
+            </span>
           </li>
           <li>
             <span className={styles.label}>Likes</span>
-            <span className={styles.quantity}>{user.stats.likes}</span>
+            <span className={styles.quantity}>
+              {user.stats.likes.toLocaleString()}
+            </span>
           </li>
         </ul>
       </div>
@@ -44,7 +50,7 @@ Profile.propTypes = {
     stats: PropTypes.shape({
       followers: PropTypes.number.isRequired,
       views: PropTypes.number.isRequired,
-      likes: PropTypes.number.isRequired
+      likes: PropTypes.number.isRequired,
     }),
   }),
 };
